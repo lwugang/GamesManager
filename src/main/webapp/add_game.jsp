@@ -21,7 +21,7 @@
     <form action="/addGame" method="post" enctype="multipart/form-data">
         <ul>
             <li>游戏名称：<input name="name"/><br/></li>
-            <li>apk文件：<input name="apkfile" type="file"/><br/></li>
+            <li>apk文件下载路径：<input name="apkfile" /><br/></li>
             <li>游戏图标：<input name="icon" type="file"/><br/></li>
             <li>游戏描述：<textarea name="desc" style="width: 400px; height: 100px;"></textarea>
             <li>游戏截图：<input name="imgs" type="file"/><br/></li>

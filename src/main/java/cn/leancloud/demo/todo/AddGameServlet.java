@@ -29,7 +29,7 @@ public class AddGameServlet extends HttpServlet {
         game.imgs = readPart(req.getPart("imgs"), game.name,false);
         game.imgs1 = readPart(req.getPart("imgs1"), game.name,false);
         game.imgs2 = readPart(req.getPart("imgs2"), game.name,false);
-        game.apkFile = readPart(req.getPart("apkfile"), game.name,false);
+        game.apkFile = readPart(req.getPart("apkfile"), game.name,true);
         AVObject avObject = new AVObject("Games");
         game.saveInBackground(avObject,new SaveCallback() {
             @Override
