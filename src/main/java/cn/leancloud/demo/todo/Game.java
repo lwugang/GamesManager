@@ -19,12 +19,12 @@ public class Game {
   }
 
   public String name;
-  public String icon;
+  public Object icon;
   public String desc;
-  public String imgs;
-  public String imgs1;
-  public String imgs2;
-  public String apkFile;
+  public Object imgs;
+  public Object imgs1;
+  public Object imgs2;
+  public Object apkFile;
 
   public String getName() {
     return name;
@@ -34,7 +34,7 @@ public class Game {
     this.name = name;
   }
 
-  public String getIcon() {
+  public Object getIcon() {
     return icon;
   }
 
@@ -50,7 +50,7 @@ public class Game {
     this.desc = desc;
   }
 
-  public String getImgs() {
+  public Object getImgs() {
     return imgs;
   }
 
@@ -58,7 +58,7 @@ public class Game {
     this.imgs = imgs;
   }
 
-  public String getImgs1() {
+  public Object getImgs1() {
     return imgs1;
   }
 
@@ -66,7 +66,7 @@ public class Game {
     this.imgs1 = imgs1;
   }
 
-  public String getImgs2() {
+  public Object getImgs2() {
     return imgs2;
   }
 
@@ -74,7 +74,7 @@ public class Game {
     this.imgs2 = imgs2;
   }
 
-  public String getApkFile() {
+  public Object getApkFile() {
     return apkFile;
   }
 

@@ -9,13 +9,23 @@
 <html>
 <head>
     <title>${game.name}</title>
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0"/>
     <style type="text/css">
+        @media only screen and (min-width: 321px) and (max-width: 1024px){
+            #content{
+                width: 98%; margin: 0 auto;text-align: center;
+            }
+        }
+        @media only screen and (min-width: 1029px) {
+            #content{
+                width: 60%; margin: 0 auto;text-align: center;
+            }
+        }
         li {
             padding: 20px;
             list-style-type: none;
             align-content: center;
             text-align: center;
-            margin-right: 20px;
             box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 2px 5px 0 rgba(0, 0, 0, 0.19);
         }
 
@@ -76,7 +86,7 @@
 
 </head>
 <body>
-<div style="width: 60%; margin: 0 auto;text-align: center;">
+<div id="content">
     <li>
         <img src="${game.icon}"/><br/><br/>
         <span style="font-weight: bold">${game.name}</span><br/><br/>

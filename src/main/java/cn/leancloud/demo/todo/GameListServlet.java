@@ -1,10 +1,8 @@
 package cn.leancloud.demo.todo;
 
-import com.alibaba.fastjson.JSON;
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
-import org.json.JSONObject;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -24,13 +22,28 @@ public class GameListServlet extends HttpServlet {
   protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     AVQuery<AVObject> avQuery = new AVQuery<>("Games");
     try {
+      avQuery.include("icon");
+      avQuery.include("imgs");
+      avQuery.include("imgs1");
+      avQuery.include("imgs2");
+      avQuery.include("apkFile");
       List<AVObject> avObjects = avQuery.find();
       List<Game> games = new ArrayList<>();
+      Game game = null;
       for (int i = 0; i < avObjects.size(); i++) {
-        JSONObject jsonObject = avObjects.get(i).toJSONObject();
-        games.add(JSON.parseObject(jsonObject.toString(),Game.class));
+        AVObject avObject = avObjects.get(i);
+        game = new Game();
+        if(avObject.getAVFile("apkFile")==null)
+          continue;
+        game.apkFile = avObject.getAVFile("apkFile").getUrl();
+        game.icon = avObject.getAVFile("icon").getUrl();
+        game.imgs = avObject.getAVFile("imgs").getUrl();
+        game.imgs1 = avObject.getAVFile("imgs1").getUrl();
+        game.imgs2 = avObject.getAVFile("imgs2").getUrl();
+        game.name = avObject.getString("name");
+        game.desc = avObject.getString("desc");
+        games.add(game);
       }
-      System.out.println(games);
       req.setAttribute("games",games);
       req.getRequestDispatcher("/game_list.jsp").forward(req,resp);
     } catch (AVException e) {
